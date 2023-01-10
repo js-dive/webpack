@@ -15,43 +15,6 @@ module.exports = [
 		mode: "production",
 		optimization: {
 			minimize: false,
-			concatenateModules: false,
-			splitChunks: {
-				chunks: "all"
-			}
-		},
-		module: {
-			rules: [
-				{
-					test: /\.png$/,
-					use: [
-						// {
-						// 	loader: 'raw-loader'
-						// },
-						{
-							loader: "file-loader",
-							options: {
-								name(file) {
-									if (process.env.NODE_ENV === "development") {
-										return "[path][name].[ext]";
-									}
-
-									return "[hash].[ext]";
-								}
-							}
-						}
-					]
-				}
-			]
-		},
-		plugins: [
-			new CleanWebpackPlugin(),
-			// https://github.com/ampedandwired/html-webpack-plugin
-			new HtmlWebpackPlugin({
-				filename: "./index.html",
-				template: "./src/public/index.template.html",
-				inject: true
-			})
-		]
+		}
 	}
 ];
