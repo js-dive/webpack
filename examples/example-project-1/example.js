@@ -1,1 +1,3 @@
-module.exports = require("./src/index")
+// module.exports = require("./src/index")
+
+console.log('Hello')
