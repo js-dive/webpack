@@ -1,3 +1,4 @@
+import 'normalize.css'
 import { someNumber } from "../index"
 export * as module_3 from "./module-3"
 
