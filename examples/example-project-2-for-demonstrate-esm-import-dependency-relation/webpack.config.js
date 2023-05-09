@@ -38,15 +38,25 @@ module.exports = [
 					]
 				}
 			]
-		}
-		// 	plugins: [
-		// 		new CleanWebpackPlugin(),
-		// 		// https://github.com/ampedandwired/html-webpack-plugin
-		// 		new HtmlWebpackPlugin({
-		// 			filename: "./index.html",
-		// 			template: "./src/public/index.template.html",
-		// 			inject: true
-		// 		})
-		// ]
+		},
+		plugins: [
+			new (class GogoendPlugin {
+				constructor() {}
+				apply(compiler) {
+					compiler.hooks.compilation.tap(
+						"GogoendPlugin",
+						(compilation, { normalModuleFactory }) => {
+							normalModuleFactory.hooks.module.tap(
+								"GogoendPlugin",
+								(module, { resource, resourceResolveData }, resolveData) => {
+									console.log(module);
+									return module;
+								}
+							);
+						}
+					);
+				}
+			})()
+		]
 	}
 ];
