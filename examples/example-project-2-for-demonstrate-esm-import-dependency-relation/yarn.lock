@@ -801,6 +801,11 @@ terser@^5.10.0:
     commander "^2.20.0"
     source-map-support "~0.5.20"
 
+ts-lib@^0.0.5:
+  version "0.0.5"
+  resolved "https://registry.npmmirror.com/ts-lib/-/ts-lib-0.0.5.tgz#7f319885478de67f575a3b890a3f30fc6159352a"
+  integrity sha512-pBLcwddLU22ib+vOAzhmTVqQZVN6FD8LtI0Rq4W6BZMOwhOpXqkKRi8f7P5F8KkuPzeunpimLbL0jznWsBeQHg==
+
 tslib@^2.0.3:
   version "2.4.0"
   resolved "https://registry.npmmirror.com/tslib/-/tslib-2.4.0.tgz#7cecaa7f073ce680a05847aa77be941098f36dc3"

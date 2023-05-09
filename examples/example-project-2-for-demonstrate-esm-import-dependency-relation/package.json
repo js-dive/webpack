@@ -14,5 +14,8 @@
     "webpack-cli": "^4.9.2"
   },
   "author": "gogoend",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "ts-lib": "^0.0.5"
+  }
 }
