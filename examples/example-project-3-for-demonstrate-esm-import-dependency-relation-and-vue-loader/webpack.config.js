@@ -1,5 +1,7 @@
 const path = require("path");
 const { VueLoaderPlugin } = require("./node_modules/vue-loader");
+const SplitChunkPlugin = require("../../lib/optimize/SplitChunksPlugin");
+const HtmlWebpackPlugin = require("./node_modules/html-webpack-plugin");
 
 module.exports = [
 	{
@@ -64,13 +66,16 @@ module.exports = [
 		plugins: [
 			// new CleanWebpackPlugin(),
 			// // https://github.com/ampedandwired/html-webpack-plugin
-			// new HtmlWebpackPlugin({
-			// 	filename: "./index.html",
-			// 	template: "./src/public/index.template.html",
-			// 	inject: true
-			// })
+			new HtmlWebpackPlugin({
+				filename: "./index.html",
+				template: "./src/index.template.html",
+				inject: true
+			}),
 			// make sure to include the plugin!
-			new VueLoaderPlugin()
+			new VueLoaderPlugin(),
+			new SplitChunkPlugin({
+				maxSize: 8192
+			})
 		]
 	}
 ];
