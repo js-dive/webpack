@@ -1,7 +1,8 @@
 const path = require("path");
 const { VueLoaderPlugin } = require("./node_modules/vue-loader");
-const SplitChunkPlugin = require("../../lib/optimize/SplitChunksPlugin");
+// const SplitChunkPlugin = require("../../lib/optimize/SplitChunksPlugin");
 const HtmlWebpackPlugin = require("./node_modules/html-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = [
 	{
@@ -42,7 +43,7 @@ module.exports = [
 				},
 				{
 					test: /\.css$/,
-					use: ["vue-style-loader", "css-loader"]
+					use: ["vue-style-loader", MiniCssExtractPlugin.loader, "css-loader"]
 				},
 				{
 					test: /\.vue$/,
@@ -65,6 +66,7 @@ module.exports = [
 		},
 		plugins: [
 			// new CleanWebpackPlugin(),
+			new MiniCssExtractPlugin(),
 			// // https://github.com/ampedandwired/html-webpack-plugin
 			new HtmlWebpackPlugin({
 				filename: "./index.html",
@@ -72,10 +74,10 @@ module.exports = [
 				inject: true
 			}),
 			// make sure to include the plugin!
-			new VueLoaderPlugin(),
-			new SplitChunkPlugin({
-				maxSize: 8192
-			})
+			new VueLoaderPlugin()
+			// new SplitChunkPlugin({
+			// 	maxSize: 8192
+			// })
 		]
 	}
 ];
