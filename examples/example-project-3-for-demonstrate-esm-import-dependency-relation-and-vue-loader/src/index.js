@@ -11,3 +11,5 @@ export const someNumber = 9999
 logHello()
 logGogoend()
 console.log(examplePackageJson, snapshotImg, module_3, VueShared)
+
+import('./modules/module-5.vue')
